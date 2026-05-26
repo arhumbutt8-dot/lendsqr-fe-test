@@ -1,0 +1,42 @@
+// ── Brand colors ──────────────────────────────────────────────────────────────
+$color-primary:        #39CDCC;
+$color-primary-hover:  #2eb8b7;
+$color-danger:         #E4033B;
+$color-warning:        #E9B200;
+$color-success:        #39CD62;
+$color-inactive:       #545F7D;
+$color-navy:           #213F7D;
+
+// ── Backgrounds ───────────────────────────────────────────────────────────────
+$color-sidebar-bg:         #FFFFFF;          // white sidebar (Figma)
+$color-sidebar-active-bg:  rgba(57, 205, 204, 0.06);
+$color-page-bg:            #F4F6F8;
+$color-card-bg:            #FFFFFF;
+
+// ── Borders & text ────────────────────────────────────────────────────────────
+$color-border:         #E5E9F2;
+$color-search-border:  #E5E9F2;
+$color-text-muted:     #545F7D;
+$color-text-body:      #213F7D;
+
+// ── Status badge fills ────────────────────────────────────────────────────────
+$color-status-active-bg:       rgba(57, 205, 98,  0.06);
+$color-status-active-text:     #39CD62;
+$color-status-inactive-bg:     rgba(84, 95, 125,  0.06);
+$color-status-inactive-text:   #545F7D;
+$color-status-pending-bg:      rgba(233, 178, 0,  0.06);
+$color-status-pending-text:    #E9B200;
+$color-status-blacklisted-bg:  rgba(228, 3,  59,  0.06);
+$color-status-blacklisted-text:#E4033B;
+
+// ── Typography ────────────────────────────────────────────────────────────────
+$font-family:    'Work Sans', sans-serif;
+$font-size-base: 14px;
+
+// ── Layout ────────────────────────────────────────────────────────────────────
+$sidebar-width:   260px;
+$topbar-height:   80px;
+
+// ── Breakpoints ───────────────────────────────────────────────────────────────
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 900px;

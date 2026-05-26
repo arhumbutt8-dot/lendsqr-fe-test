@@ -1,0 +1,25 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.shell {
+  min-height: 100vh;
+  background: $color-page-bg;
+}
+
+.main {
+  margin-left: $sidebar-width;
+  padding: calc($topbar-height + 30px) 60px 48px 60px;
+  min-height: 100vh;
+
+  @include respond-to(tablet) {
+    margin-left: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @include respond-to(mobile) {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: calc($topbar-height + 20px);
+  }
+}

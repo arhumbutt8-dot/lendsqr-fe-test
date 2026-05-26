@@ -1,0 +1,289 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// ── Shell ─────────────────────────────────────────────────────────────────────
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $topbar-height;
+  background: $color-card-bg;
+  box-shadow: 0 1px 0 $color-border;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 60px 0 30px;
+  gap: 24px;
+
+  @include respond-to(tablet) {
+    padding: 0 20px;
+    gap: 16px;
+  }
+}
+
+// ── Left: logo ────────────────────────────────────────────────────────────────
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: $sidebar-width;
+  flex-shrink: 0;
+
+  @include respond-to(tablet) {
+    width: auto;
+  }
+}
+
+.hamburger {
+  @include button-reset;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: $color-navy;
+    border-radius: 2px;
+  }
+
+  @include respond-to(tablet) {
+    display: flex;
+  }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+// ── Center: search ────────────────────────────────────────────────────────────
+.center {
+  flex: 1;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: stretch;
+  max-width: 400px;
+  height: 40px;
+  border: 1px solid $color-search-border;
+  border-radius: 8px;
+  overflow: hidden;
+  background: $color-card-bg;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  font-size: 14px;
+  font-family: $font-family;
+  color: $color-text-body;
+  background: transparent;
+
+  &::placeholder {
+    color: rgba($color-text-muted, 0.6);
+  }
+}
+
+.searchBtn {
+  @include flex-center;
+  width: 56px;
+  background: $color-primary;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+}
+
+// ── Right: docs, bell, user ───────────────────────────────────────────────────
+.right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-shrink: 0;
+
+  @include respond-to(tablet) {
+    gap: 16px;
+  }
+}
+
+.docsLink {
+  font-size: 14px;
+  color: $color-navy;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.iconBtn {
+  @include button-reset;
+  @include flex-center;
+  width: 26px;
+  height: 26px;
+  color: $color-navy;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+// ── User menu ─────────────────────────────────────────────────────────────────
+.userMenuWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+// Avatar — circular photo
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E37B40;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  @include flex-center;
+  flex-shrink: 0;
+  overflow: hidden;
+  cursor: default;
+}
+
+.userBtn {
+  @include button-reset;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-navy;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+// ── Dropdown ──────────────────────────────────────────────────────────────────
+.userDropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: $color-card-bg;
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 200;
+  min-width: 220px;
+  overflow: hidden;
+  list-style: none;
+}
+
+.userDropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.dropdownAvatar {
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #E37B40;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.dropdownName {
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-navy;
+}
+
+.dropdownEmail {
+  font-size: 12px;
+  color: $color-text-muted;
+  margin-top: 2px;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: $color-border;
+}
+
+.dropdownItem {
+  @include button-reset;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: $color-text-muted;
+  text-align: left;
+  transition: background 0.12s;
+
+  &:hover {
+    background: rgba($color-primary, 0.05);
+    color: $color-navy;
+  }
+}
+
+.dropdownLogout {
+  color: $color-danger;
+
+  &:hover {
+    background: rgba($color-danger, 0.05);
+    color: $color-danger;
+  }
+}

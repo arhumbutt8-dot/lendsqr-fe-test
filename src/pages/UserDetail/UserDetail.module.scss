@@ -1,0 +1,322 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+// ── Navigation ────────────────────────────────────────────────────────────────
+.backBtn {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: $color-text-muted;
+  margin-bottom: 24px;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $color-navy;
+  }
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.titleRow {
+  @include flex-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: $color-navy;
+}
+
+.actionBtns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.blacklistBtn,
+.activateBtn {
+  @include button-reset;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.15s, opacity 0.15s;
+
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+}
+
+.blacklistBtn {
+  border: 1px solid $color-danger;
+  color: $color-danger;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-danger, 0.06);
+  }
+}
+
+.activateBtn {
+  border: 1px solid $color-primary;
+  color: $color-primary;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-primary, 0.06);
+  }
+}
+
+// ── Profile card ──────────────────────────────────────────────────────────────
+.profileCard {
+  @include card;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 32px;
+  flex-wrap: wrap;
+
+  @include respond-to(mobile) {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+}
+
+.avatarCircle {
+  @include flex-center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba($color-text-muted, 0.15);
+  color: $color-text-muted;
+  font-size: 28px;
+  font-weight: 600;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.profileName {
+  font-size: 22px;
+  font-weight: 600;
+  color: $color-navy;
+}
+
+.profileId {
+  font-size: 14px;
+  color: $color-text-muted;
+  font-family: monospace;
+}
+
+.profileDivider {
+  width: 1px;
+  height: 72px;
+  background: $color-border;
+  flex-shrink: 0;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.tierInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tierLabel {
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.balanceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.balance {
+  font-size: 22px;
+  font-weight: 700;
+  color: $color-navy;
+}
+
+.bankInfo {
+  font-size: 12px;
+  color: $color-text-muted;
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+.tabs {
+  display: flex;
+  border-top: 1px solid $color-border;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}
+
+.tab {
+  @include button-reset;
+  padding: 16px 24px;
+  font-size: 14px;
+  color: $color-text-muted;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+
+  &:hover {
+    color: $color-navy;
+  }
+
+  &.activeTab {
+    color: $color-primary;
+    border-bottom-color: $color-primary;
+    font-weight: 500;
+  }
+}
+
+// ── Content card ──────────────────────────────────────────────────────────────
+.contentCard {
+  @include card;
+  padding: 32px;
+
+  @include respond-to(mobile) {
+    padding: 20px 16px;
+  }
+}
+
+// ── Info sections ─────────────────────────────────────────────────────────────
+.infoSection {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: $color-navy;
+  margin-bottom: 20px;
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px 16px;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to(mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(small-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infoField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fieldValue {
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-navy;
+  word-break: break-word;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: 24px 0;
+}
+
+// ── Coming soon ───────────────────────────────────────────────────────────────
+.comingSoon {
+  @include flex-center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 60px 24px;
+  color: $color-text-muted;
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+    color: $color-navy;
+  }
+
+  span {
+    font-size: 14px;
+  }
+}
+
+// ── Status row ────────────────────────────────────────────────────────────────
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.statusLabel {
+  font-size: 14px;
+  color: $color-text-muted;
+}
+
+// ── Loading / not found ───────────────────────────────────────────────────────
+.loading,
+.notFound {
+  @include flex-center;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 300px;
+  font-size: 14px;
+  color: $color-text-muted;
+}

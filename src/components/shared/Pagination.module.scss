@@ -1,0 +1,122 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0 10px;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: $color-text-muted;
+
+  strong {
+    color: $color-navy;
+    font-weight: 600;
+  }
+}
+
+.sizeSelect {
+  background: rgba($color-text-muted, 0.08);
+  border: 1px solid rgba($color-text-muted, 0.1);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: $font-family;
+  color: $color-navy;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  @include button-reset;
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgba($color-navy, 0.08);
+  color: $color-navy;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover:not(:disabled) {
+    background: rgba($color-primary, 0.12);
+    color: $color-primary;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageBtn {
+  @include button-reset;
+  @include flex-center;
+  min-width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: $color-text-muted;
+  opacity: 0.6;
+  transition: background 0.15s, color 0.15s, opacity 0.15s;
+  padding: 0 8px;
+  background: transparent;
+
+  &:hover {
+    color: $color-navy;
+    opacity: 1;
+  }
+
+  &.active {
+    background: transparent;
+    color: $color-navy;
+    font-weight: 600;
+    opacity: 1;
+  }
+}
+
+.ellipsis {
+  @include flex-center;
+  min-width: 32px;
+  height: 32px;
+  font-size: 14px;
+  color: $color-text-muted;
+  opacity: 0.6;
+}
+
+// Hide the redundant textual 'Showing X-Y of Z' to perfectly match the Figma design
+.showing {
+  display: none;
+}
